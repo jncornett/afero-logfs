@@ -12,3 +12,7 @@ type Record struct {
 type Logger interface {
 	Log(Record)
 }
+
+type LoggerFunc func(Record)
+
+func (f LoggerFunc) Log(r Record) { f(r) }
